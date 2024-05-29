@@ -1,5 +1,5 @@
 const assert = require("assert");
-const encoder = require("..");
+const encoder = require("..").default;
 
 const testSpec = [
   {
@@ -52,10 +52,10 @@ describe("encoding", () => {
       const audioData = {
         channelData: [ new Float32Array(data) ], sampleRate: 8000,
       };
-      const encoded = encoder.encode.sync(audioData, opts);
+      const encoded = encoder.encodeSync(audioData, opts);
       const actual = new TypedArray(encoded, 44);
 
-      assert.deepEqual(actual, expected);
+      assert.deepEqual(actual, new TypedArray(expected));
     });
   });
 });

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const assert = require("assert");
-const encoder = require("..");
+const encoder = require("..").default;
 
 const testSpec = [
   { opts: { bitDepth:  8 }, filename: "amen_pcm8.wav" },
@@ -41,7 +41,7 @@ describe("encode(audioData, opts)", () => {
 
   testSpec.forEach(({ opts, delta, filename }) => {
     it(filename, () => {
-      const expected = new Uint8Array(encoder.encode.sync(audioData, opts));
+      const expected = new Uint8Array(encoder.encodeSync(audioData, opts));
 
       return encoder.encode(audioData, opts).then((actual) => {
         actual = new Uint8Array(actual);

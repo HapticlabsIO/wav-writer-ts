@@ -1,22 +1,24 @@
 {
-  "name": "wav-encoder",
+  "name": "wav-encoder-ts",
   "description": "promise-based wav encoder",
   "version": "1.3.0",
   "author": "Nao Yonamine <mohayonao@gmail.com>",
   "bugs": {
-    "url": "https://github.com/mohayonao/wav-encoder/issues"
+    "url": "https://github.com/HapticlabsIO/wav-writer-ts/issues"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.12.12",
     "eslint": "^4.4.1",
-    "mocha": "^3.5.0"
+    "mocha": "^3.5.0",
+    "typescript": "^5.4.5"
   },
   "files": [
     "package.json",
     "README.md",
     "index.js"
   ],
-  "homepage": "https://github.com/mohayonao/wav-encoder/",
+  "homepage": "https://github.com/HapticlabsIO/wav-writer-ts/",
   "keywords": [
     "encode",
     "universal",
@@ -26,13 +28,14 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mohayonao/wav-encoder.git"
+    "url": "https://github.com/HapticlabsIO/wav-writer-ts.git"
   },
   "scripts": {
     "lint": "eslint index.js",
+    "build": "tsc",
     "postversion": "git push && git push --tags",
-    "prepublish": "npm run lint && npm run test",
-    "preversion": "npm run lint && npm run test",
+    "prepublish": "npm build && npm run lint && npm run test",
+    "preversion": "npm build && npm run lint && npm run test",
     "test": "mocha",
     "travis": "npm run lint && npm run test"
   }
